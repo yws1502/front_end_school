@@ -1,0 +1,88 @@
+/* common */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+nav li a, dt {
+  color: rgb(150, 150, 150);
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  background-color: rgb(242, 242, 242);
+  border: 2px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  margin: 40px auto;
+  padding: 20px;
+  width: 830px;
+}
+
+/* header section */
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+nav {
+  margin: 0 auto;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid rgb(211, 211, 211);
+  margin: 0 auto;
+}
+
+nav li {
+  margin: 14px;
+  font-size: 13px;
+}
+
+nav li[class="current"] a {
+  color: black;
+}
+
+/* movie content section */
+
+main {
+  background-color: #fff;
+  border: 2px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.top-contents, .bottom-contents {
+  display: flex;
+}
+
+.content {
+  border: 2px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 15px;
+}
+
+.content h3 {
+  font-size: 14px;
+}
+
+.content-post {
+  width: 150px;
+  height: 215px;
+  border-radius: 10px;
+}
