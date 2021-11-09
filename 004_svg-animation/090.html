@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reverse</title>
+    <style>
+        @keyframes movie-box {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            33.3% {
+                transform: translate(300px, 0);
+            }
+
+            66.6% {
+                transform: translate(300px, 300px);
+            }
+
+            100% {
+                transform: translate(0, 300px);
+            }
+        }
+
+        div {
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            animation: movie-box 6s alternate infinite;
+        }
+    </style>
+</head>
+<body>
+    <div>hello world</div>
+</body>
+</html>
