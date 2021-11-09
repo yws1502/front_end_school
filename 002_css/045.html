@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radius</title>
+    <style>
+      .lion {
+        background: #d8982c;
+        border: 5px solid black;
+      }
+      
+      .lion-ear {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        margin: 20px;
+      }
+      
+      .lion-left-ear {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+      
+      .lion-right-ear {
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      }
+
+      .lion-face {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+
+      }
+
+    </style>
+</head>
+<body>
+    <section>
+      <div class="lion lion-ear lion-left-ear"></div>
+      <div class="lion lion-ear lion-right-ear"></div>
+    </section>
+    <div class="lion lion-face"></div>
+</body>
+</html>

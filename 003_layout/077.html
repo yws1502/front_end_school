@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    ul {
+      display: flex;
+      height: 100vh;
+      /* align-items: flex-end; */
+    }
+    
+    li {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      border: 1px solid black;
+    }
+
+    .first {
+      /* order: 2; */
+    }
+
+    .second {
+      /* order: 2; */
+    }
+
+    .third {
+      /* order: 2; */
+    }
+
+    .forth {
+      order: 0;
+    }
+
+    .fifth {
+      /* order: 1; */
+      /* align-self: flex-start; */
+    }
+    /*
+    order는 순서가 아니라 순위값이다! default는 0순위! 
+    음수 포함 값이 작아지면 앞으로 간다.
+    마크업 상의 위치는 아니고 랜더링 상의 위치만 바꾼다.
+    */
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li class="first">1</li>
+    <li class="second">2</li>
+    <li class="third">3</li>
+    <li class="forth">4</li>
+    <li class="fifth">5</li>
+  </ul>
+</body>
+
+</html>
