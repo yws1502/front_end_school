@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+    <style>
+        body {
+            perspective: 100px;
+        }
+        .btn {
+            background-color: #fff;
+            position: relative;
+            border: 4px solid palevioletred;
+            border-radius: 4px;
+            color: palevioletred;
+            font-size: 32px;
+            padding: 30px 60px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: darkred;
+            width: 100%;
+            height: 100%;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            transform-origin: bottom;
+            transform: rotateX(180deg);
+            transition: all 1s;
+        }
+        
+        .btn:hover {
+            border: 4px solid darkred;
+            color: #fff;
+            transition: all 1s;
+            z-index: 1;
+        }
+
+        .btn:hover::after {
+            transform: rotateX(0);
+            transition: all 1s;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="btn">Click Me!</button>
+</body>
+</html>

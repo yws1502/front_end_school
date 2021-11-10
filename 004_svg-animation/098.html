@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card flip</title>
+    <style>
+        @keyframes turn {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .origin {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            perspective: 400px;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+        }
+
+        .origin .rotate-card {
+            position: absolute;
+            font-size: 32px;
+            width: 200px;
+            height: 200px;
+            animation: turn 8s infinite;
+            transform-style: preserve-3d;
+        }
+
+        .rotate-card > [class^="rotate"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rotate-card .rotate-front {
+            background-color: violet;
+            backface-visibility: hidden;
+        }
+
+        .rotate-card .rotate-back {
+            background-color: red;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="origin">
+        <div class="rotate-card">
+            <div class="rotate-front">front</div>
+            <div class="rotate-back">back</div>
+        </div>
+    </div>
+</body>
+</html>
