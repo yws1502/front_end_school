@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+
+</head>
+
+<body>
+    <main id="app">
+        <h1 class="title-law">
+            <img src="./img/title.png" alt="1만 시간의 법칙" class="img-title">
+        </h1>
+        <img src="./img/text-title.png" alt="연습은 어제의 당신보다 당신을 더 낫게 만든다." class="img-text">
+        <p class="text-description">
+            <strong class="text-impact">1만 시간의 법칙</strong>은 <br>
+            어떤 분야의 전문가가 되기 위해서는 <br>
+            최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+        </p>
+        <form class="content-input">
+            <p class="text-wannabe">나는<input type="text" placeholder="예)프로그래밍" required>전문가가 될 것이다.</p>
+            <p class="text-time">그래서 앞으로 매일 하루에<input type="number" value="1" min="1" max="24" required>시간씩 훈련할 것이다.</p>
+            <button class="btn-excute">나는 며칠 동안 훈련을 해야 1만 시간이 될까?</button>
+        </form>
+        <section class="content-result">
+            <h2 class="screen-read-only">결과 확인</h2>
+            <p class="text-wannabe">당신은 <strong>프로그래밍</strong> 전문가가 되기 위해서</p>
+            <p class="text-time">대략 <strong>5110</strong> 일 이상 훈련하셔야 됩니다!</p>
+            <button type="button" class="btn-go">훈련하러 가기 GO!GO!</button>
+            <button type="button" class="btn-share">공유하기</button>
+        </section>
+        <footer class="container-footer">
+            <img src="./img/logo.png" alt="위니브" class="img-footer">
+            <p class="text-footer">&#8251; 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다. </p>
+            <p class="text-footer">수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.</p>
+        </footer>
+    </main>
+</body>
+
+</html>
+
+<!-- 
+    heading 요소에 img 태그를 사용하는 경우 텍스트는 img에 alt로 설정된다.
+    -> 이미지 텍스트
+
+    h1에 있는 1만 시간의 법칙 이미지와 가상 요소로 만든 clock이미지를 처리할 때
+    마진 겹친 현상이 발생했다.
+    하지만 마진 겹친 현상을 까먹어 해결하는데 시간이 걸렸다..
+
+    마진 겹침 현상이란(margin collapsing)
+    - 요소와 요소의 사이에 마진 탑 혹은 마진 바텀의 공가이 있을 경우 더 높은 값의 마진 값이 적용되는 현상
+    - 부모 요소와 자식 요소가 존재할 때, 자식 요소의 마진 탑 혹은 마진 바텀 값이 부모의 높이에 영향을 미치지 않는 현상
+        - 부모와 자식 요소 모두에게 마진을 주고 싶은 경우 낮은 값의 마진 탑 값이 상쇄되어 버린다.
+
+    마진 겹친 현상 해결 방법
+    1. 
+
+-->

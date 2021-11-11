@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        /* 웹화면에서는 알 수 있지만 출력된 결과물에서는 필요한 경우 사용한다. */
+        @media print {
+            abbr::after {
+                /* attr() : css 속성 함수입니다. */
+                content: ' ('attr(title)')'
+            }
+        }
+
+        @media screen and (-webkit-device-pixel-ratio : 2) {
+            body {
+                background: royalblue;
+            }
+        }
+
+        div {
+            margin: 50px;
+            width: 1px;
+            height: 1px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <abbr title="world wide web consortium">w3c</abbr> -->
+    <div></div>
+</body>
+
+</html>
