@@ -27,3 +27,171 @@
     url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff") format('woff'),
     url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf") format('opentype');
 }
+/* common */
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+}
+.container {
+    display: inline-block;
+    background-color: #5B2386;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 219px 0 116px;
+}
+p {
+    font-size: 24px;
+    line-height: 24px;
+}
+
+/* btn common */
+[class^="btn"] {
+    padding: 21px 49px;
+    color: #5B2386;
+    font-size: 24px;
+    font-family: GmarketSansBold;
+    line-height: 24px;
+    border: none;
+    border-radius: 56px;
+    cursor: pointer;
+}
+
+/* top area */
+.main-title {
+    position: relative;
+}
+.main-title::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -112px 0 0 -112px;
+    display: block;
+    content: '';
+    background-image: url(../img/clock.png);
+    background-size: contain;
+    width: 225px;
+    height: 225px;
+}
+.main-title .img-title {
+    position: relative;
+    max-width: 564px;
+    width: 100%;
+    height: 112px;
+    margin: 0 auto;
+    z-index: 10;
+}
+.subtitle-img {
+    max-width: 486px;
+    width: 100%;
+    margin: 147px auto 78px;
+}
+
+/* intro area */
+.container-intro .intro{
+    margin: 0 auto 102px;
+    position: relative;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 102px;
+    max-width: 510px;
+    width: 100%;
+}
+.container-intro .intro strong {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+}
+.container-intro .intro::before,
+.container-intro .intro::after {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    content: '';
+    background-size : contain;
+    background-repeat: no-repeat;
+    width: 37px;
+    height: 32px;
+    margin-top: 16px;
+}
+.container-intro .intro::before {
+    background-image: url(../img/text-left.png);
+    left: 0;
+}
+.container-intro .intro::after {
+    background-image: url(../img/text-right.png);
+    right: 0;
+}
+
+/* input area */
+.container-input {
+    margin-bottom: 147px;
+}
+.container-input form input {
+    width: 228px;
+    height: 57px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 24px;
+}
+.container-input form .text-first {
+    margin-bottom: 27px;
+}
+.container-input form .text-second {
+    margin-bottom: 115px;
+}
+.container-input form .btn-submit,
+.container-result .btn-go {
+    position: relative;
+    background-color: #FCEE21;
+}
+.container-input form .btn-submit::after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    background-image: url(../img/click.png);
+    background-size: contain;
+    width: 64px;
+    height: 72px;
+    right: -75px;
+    bottom: -20px;
+}
+
+/* result area */
+.container-result {
+    margin-bottom: 136px;
+}
+.container-result strong {
+    font-size: 72px;
+    font-family: GmarketSansBold;
+    line-height: 72px;
+    vertical-align: middle;
+    margin: 0 12px;
+}
+.container-result .text-first {
+    margin-bottom: 17px;
+}
+.container-result .text-second {
+    margin-bottom: 127px;
+}
+.container-result .btn-share {
+    background-color: white;
+    margin-left: 18px;
+}
+/* footer area */
+footer img {
+    width: 125px;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    font-size: 12px;
+    line-height: 17px;
+}
