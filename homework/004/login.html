@@ -5,12 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="reset.css">
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="../../reset.css">
+    <link rel="stylesheet" href="./style/login.css">
 </head>
 <body>
-    
+    <main id="container">
+        <h1 class="container-title">로그인 및 회원가입</h1>
+        <a href="#" class="btn-close"><img src="./images/close.png" alt="닫기버튼"></a>
+        <div class="split-line"></div>
+        <section class="container-input">
+            <h2 class="blind">로그인 입력 파트</h2>
+            <p class="intro">위니브에서 여러분의 궁금증을 해결하세요! :)</p>
+            <form action="#" method="post" class="login-form">
+                <label for="id" class="blind">아이디</label>
+                <input type="text" placeholder="아이디" id="id">
+                <p class="error-id blind">아이디를 입력해 주세요.</p>
+
+                <label for="pwd" class="blind">비밀번호</label>
+                <input type="password" placeholder="비밀번호" id="pwd">
+                <p class="error-pwd blind">비밀번호를 입력해 주세요.</p>
+
+                <p class="error-input blind">아아디 혹인 비밀번호가 일치하지 않습니다.</p>
+                <div class="keep-check">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me" class="keep-check-text">로그인 상태 유지</label>
+                </div>
+                <button type="submit" class="btn-login">로그인</button>
+            </form>
+            <a href="#none">회원가입</a>
+            <a href="#none">아이디/비밀번호 찾기</a>
+        </section>
+        <div class="split-line">또는</div>
+        <section class="social-list">
+            <ul>
+                <li><a href="#none" class="social-google">구글 계정으로 로그인</a></li>
+                <li><a href="#none" class="social-facebook">페이스북 계정으로 로그인</a></li>
+                <li><a href="#none" class="social-naver">네이버 계정으로 로그인</a></li>
+                <li><a href="#none" class="social-kakao">카카오톡 계정으로 로그인</a></li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
