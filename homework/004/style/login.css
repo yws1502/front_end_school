@@ -7,30 +7,25 @@
     box-sizing: border-box;
     font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
 }
-
-.split-line {
-    width: 100%;
-    height: 1px;
-    background-color: #c4c4c4;
+a {
+    text-decoration: none;
+    color: #767676;
 }
-
 [class^="error"] {
     color: red;
     font-size: 14px;
     line-height: 17px;
 }
-
 body {
     background-color: #E5E5E5;
 }
-
 #container {
     position: relative;
     background-color: #FFF;
     border: 1px solid #C4C4C4;
     border-radius: 10px;
     width: 520px;
-    height: 736px;
+    height: 712px;
     margin: 100px auto;
     box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
 }
@@ -44,7 +39,6 @@ body {
     padding: 20px 0;
     text-align: center;
 }
-
 .btn-close img {
     position: absolute;
     width: 16px;
@@ -53,11 +47,17 @@ body {
     right: 24px;
 }
 
+
+/* divider */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #c4c4c4;
+}
 /* container-input area */
 .container-input {
     margin: 26px 24px;
 }
-
 .container-input .intro {
     font-size: 20px;
     font-weight: 500;
@@ -73,36 +73,32 @@ body {
     border-radius: 5px;
     padding: 15px 16px;
 }
-
 .container-input .login-form #id {
     margin-bottom: 10px;
 }
-
 .container-input .login-form #pwd {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
 }
 /* 에러 메시지 */
 .container-input .error-id,
 .container-input .error-pwd {
     margin: 6px 0 10px 4px;
 }
-
 .container-input .error-input {
     margin: 10px 0 13px 4px;
 }
 /* 로그인 상태 유지 */
 .container-input .keep-check {
     position: relative;
+    margin-bottom: 21px;
 }
-
 .container-input .keep-check #remeber-me {
     position: absolute;
-    z-index: 1;
+    left: -9999px;
 }
-
 .keep-check .keep-check-text {
     position: absolute;
-    left: 30px;
+    left: 33px;
     top: 0;
     font-weight: 500;
     font-size: 16px;
@@ -110,21 +106,142 @@ body {
     color: #767676;
     cursor: pointer;
 }
-
 .keep-check .keep-check-text::before {
     position: absolute;
-    left: -30px;
-    top: 0;
+    left: -33px;
+    top: -2px;
     display: block;
     content: "";
-    background-image: url(../images/check_gray.svg);
-    background-size: 22px 22px;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: no-repeat center url(../images/check_gray.svg);
+    background-size: 16px 17px;
     background-color: #FFF;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border: 1.5px solid #767676;
     border-radius: 100%;
-    z-index: 10;
+}
+.keep-check #remember-me:checked + .keep-check-text::before {
+    background-image: url(../images/check_white.svg);
+    background-color: #2f80ed;
+    border: 1.5px solid #2f80ed;
+}
+/* 로그인 버튼 */
+.container-input .login-form .btn-login {
+    background-color: #2f80ed;
+    padding: 14px 0;
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.container-input .login-form .btn-login:hover {
+    background-color: #FFF;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.2);
+    color: #2f80ed;
+    transition: all 1s;
+}
+/* 회원가입, 정보 찾기 */
+.container-input .register-wrap {
+    position: relative;
+    text-align: center;
+    font-size: 14px;
+    color: #767676;
+    line-height: 17px;
+    margin-bottom: 30px;
+}
+.container-input .register-wrap .register,
+.container-input .register-wrap .find {
+    padding: 0 12px;
+}
+.container-input .register-wrap::after {
+    position: absolute;
+    top: 2px;
+    left: 200px;
+    display: inline-block;
+    content: "";
+    background-color: #767676;
+    width: 1.5px;
+    height: 14px;
+}
+
+
+/* divider */
+.divider-social {
+    background-color: #767676;
+    height: 1px;
+    width: 90%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 0.1px;
+    margin: 0 auto 29px;
+}
+.divider-social span {
+    display: inline-block;
+    background-color: #fff;
+    color: #767676;
+    width: 52px;
+    height: 18px;
+}
+
+/* social area */
+.container-social {
+    margin: 0 24px;
+}
+
+.container-social .social-list [class^="btn-social"] {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container-social .social-list .btn-social-google {
+    border: 1px solid #767676;
+}
+.container-social .social-list .btn-social-facebook {
+    border: 1px solid #2f80ed;
+}
+.container-social .social-list .btn-social-naver {
+    border: 1px solid #00bf18;
+}
+.container-social .social-list .btn-social-kakao {
+    border: 1px solid #f2c94c;
+}
+
+.container-social .social-list [class^="btn-social"]::before {
+    background-image: url();
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    display: inline-block;
+    content: "";
+    width: 28px;
+    height: 28px;
+}
+
+.container-social .social-list .btn-social-google::before {
+    background-image: url(../images/Google__G__Logo\ 1.png);
+}
+.container-social .social-list .btn-social-facebook::before {
+    background-image: url(../images/facebook.png);
+}
+.container-social .social-list .btn-social-naver::before {
+    background-image: url(../images/naver-logo.png);
+}
+.container-social .social-list .btn-social-kakao::before {
+    background-image: url(../images/message-circle.png);
 }
