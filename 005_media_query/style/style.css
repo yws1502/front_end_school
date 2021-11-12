@@ -56,27 +56,27 @@
     height: 225px;
     margin: -112px 0 0 -112px;
     background-image: url(../img/clock.png);
-    background-size: contain;
+    background-position: center;
 }
 
 .title-law .img-title {
     position: relative;
-    width: 564px;
+    max-width: 564px;
     height: 112px;
     z-index: 10;
 }
 
 .img-text {
     max-width: 486px;
-    margin: 125px auto 78px;
+    margin: 123px auto 84px;
 }
 
 .text-description {
     position: relative;
-    line-height: 24px;
+    line-height: 31px;
     font-size: 18px;
-    width: 475px;
-    margin: 0 auto 102px;
+    max-width: 475px;
+    margin: 0 auto 96px;
 }
 
 .text-description .text-impact {
@@ -92,17 +92,17 @@
     content: '';
     width: 37px;
     height: 32px;
-    margin-top: -16px;
+    margin-top: -33px;
 }
 
 .text-description::before {
     background-image: url(../img/text-left.png);
-    left: 0;
+    left: -2px;
 }
 
 .text-description::after {
     background-image: url(../img/text-right.png);
-    right: 0;
+    right: -4px;
 }
 
 .content-input,
@@ -116,7 +116,7 @@
 }
 
 .content-input .text-time {
-    margin-bottom: 115px;
+    margin-bottom: 114px;
 }
 
 .content-input p input {
@@ -132,11 +132,11 @@
 .content-input .btn-excute,
 .content-result .btn-go,
 .content-result .btn-share {
-    margin-bottom: 147px;
+    margin-bottom: 154px;
     padding: 21px 49px;
     font-family: GmarketSansBold;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 28px;
     font-weight: bold;
     color: #5B2386;
     background-color: #FCEE21;
@@ -158,7 +158,7 @@
     width: 64px;
     height: 72px;
     right: -70px;
-    bottom: -21px;
+    bottom: -17px;
 }
 
 .content-result .text-wannabe strong,
@@ -174,7 +174,7 @@
 }
 
 .content-result .text-time {
-    margin-bottom: 127px;
+    margin-bottom: 125px;
 }
 
 .content-result .btn-share {
@@ -194,4 +194,96 @@
     width: 125px;
     height: 25px;
     margin: 0 auto 20px;
+}
+
+@media screen and (max-width: 360px) {
+    #app {
+        padding: 0 24px 32px;
+    }
+
+    .title-law {
+        width: 267px;
+        height: 57px;
+        margin-top: 76px;
+    }
+    .title-law::after {
+        width: 106px;
+        height: 106px;
+        margin: -53px  0 0 -53px;
+        background-size: 106px;
+    }
+
+    .title-law .img-title {
+        max-width: 267px;
+        height: 53px;
+    }
+
+    .img-text {
+        max-width: 297px;
+    }
+
+    .text-description {
+        font-size: 14px;
+    }
+
+    .text-description .text-impact {
+        font-size: 16px;
+    }
+
+    .text-description::before,
+    .text-description::after {
+        width: 18px;
+        height: 15px;
+        background-size: 18px 15px;
+    }
+
+    .content-input {
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .content-input .text-wannabe input,
+    .content-input .text-time input {
+        width: 156px;
+        height: 37px;
+        font-size: 14px;
+        margin: 0 2px;
+        padding: 0;
+    }
+
+    .content-input .text-wannabe {
+        margin-bottom: 17px;
+    }
+
+    .content-input .text-time input {
+        margin-top: 17px;
+    }
+
+    .content-input .btn-excute {
+        width: 280px;
+        padding: 19px 36px;
+        font-size: 17px;
+        line-height: 17px;
+        border-radius: 13px;
+    }
+
+    .content-input .btn-excute::after {
+        width: 43px;
+        height: 48px;
+        background-size: 43px 48px;
+        right: -40px;
+        top: 30px;
+    }
+
+    .content-result .text-wannabe, .content-result .text-time {
+        line-height: 14px;
+    }
+
+    .content-result .btn-go,
+    .content-result .btn-share {
+        font-size: 14px;
+        padding: 12px 17px;
+    }
+
+
 }
