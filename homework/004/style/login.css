@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+/* common */
+* {
+    box-sizing: border-box;
+    font-family: 'Spoqa Han Sans Neo', 'Spoqa Han Sans JP', sans-serif;
+}
+
+.split-line {
+    width: 100%;
+    height: 1px;
+    background-color: #c4c4c4;
+}
+
+[class^="error"] {
+    color: red;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+#container {
+    position: relative;
+    background-color: #FFF;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    width: 520px;
+    height: 736px;
+    margin: 100px auto;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+}
+
+
+/* top area  */
+.container-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.btn-close img {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 22px;
+    right: 24px;
+}
+
+/* container-input area */
+.container-input {
+    margin: 26px 24px;
+}
+
+.container-input .intro {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+/* 로그인 form */
+.container-input .login-form #id,
+.container-input .login-form #pwd {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 15px 16px;
+}
+
+.container-input .login-form #id {
+    margin-bottom: 10px;
+}
+
+.container-input .login-form #pwd {
+    margin-bottom: 16px;
+}
+/* 에러 메시지 */
+.container-input .error-id,
+.container-input .error-pwd {
+    margin: 6px 0 10px 4px;
+}
+
+.container-input .error-input {
+    margin: 10px 0 13px 4px;
+}
+/* 로그인 상태 유지 */
+.container-input .keep-check {
+    position: relative;
+}
+
+.container-input .keep-check #remeber-me {
+    position: absolute;
+    z-index: 1;
+}
+
+.keep-check .keep-check-text {
+    position: absolute;
+    left: 30px;
+    top: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #767676;
+    cursor: pointer;
+}
+
+.keep-check .keep-check-text::before {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    display: block;
+    content: "";
+    background-image: url(../images/check_gray.svg);
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFF;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid #767676;
+    border-radius: 100%;
+    z-index: 10;
+}
