@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM style</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        /* block
+        class="green-box" -> bad
+        class="error-red" -> good
+        */
+
+        /* element
+        block을 구성하는 요소들로 block에 종속되야 한다.
+        떄문에 block의 클래스 이름을 상속 받고 element의 클래스 이름을 언더바 두 개를 접두사로 하여 사용함
+        (error__link, opacity-half__btn)
+        Element 안에 또 element를 사용할 경우 클래스 네이밍은 element 끼리 중첩하지 않는다.
+        opacity-half__btn__txt -> bad
+        opacity-half__txt -> good
+        */
+
+        /* modifier
+        block이나 element의 모습이나 상태 또는 움직임(요소가 활성화된 상태, 사이즈, 컬러 등등)을 정의한다.
+        단독으로 클래스 이름을 사용하지 않고 두 번째 클래스 이름을 사용하지 않고 두번째 클래스 이름을 사용한다.
+        btn_size_small -> bad
+        btn_move btn_move_active -> good
+        클래스 네이밍은 block이나 element의 이름을 상속 받고 언더바 하나로 연결한다.
+        만약 두 개 이상의 단어룰 사용해야하면 block처럼 하이픈으로 연결
+        btn-move, btn-move_size-small
+        하이픈과 언더바를 혼용한다.
+        */
+        .chapter-baseball_active-false {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- <ul class="tabnav">
+        <li class="tabnav__item"><a href="">탭1</a></li>
+        <li><a href="" class="tabnav__link">탭2</a></li>
+        <li><a href="">탭3</a></li>
+        <li><a href="">탭4</a></li>
+    </ul> -->
+
+    <section class="chapter-baseball">
+        <!-- element class naming -->
+        <button type="button" class="chapter-baseball__btn"></button>
+        <!-- modifire class naming -->
+        <button type="button" class="chapter-baseball_active-false"></button>
+    </section>
+</body>
+</html>
