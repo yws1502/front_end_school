@@ -92,10 +92,6 @@ body {
     position: relative;
     margin-bottom: 21px;
 }
-.container-input .keep-check #remeber-me {
-    position: absolute;
-    left: -9999px;
-}
 .keep-check .keep-check-text {
     position: absolute;
     left: 33px;
@@ -207,7 +203,6 @@ body {
     text-align: center;
     margin-bottom: 10px;
 }
-
 .container-social .social-list .btn-social-google {
     border: 1px solid #767676;
 }
@@ -232,7 +227,6 @@ body {
     width: 28px;
     height: 28px;
 }
-
 .container-social .social-list .btn-social-google::before {
     background-image: url(../images/Google__G__Logo\ 1.png);
 }
@@ -244,4 +238,21 @@ body {
 }
 .container-social .social-list .btn-social-kakao::before {
     background-image: url(../images/message-circle.png);
+}
+
+.container-social .social-list [class^="btn-social"]:hover {
+    color: #fff;
+    transition: .5s;
+}
+.container-social .social-list .btn-social-google:hover {
+    background-color: #767676;
+}
+.container-social .social-list .btn-social-facebook:hover {
+    background-color: #2f80ed;
+}
+.container-social .social-list .btn-social-naver:hover {
+    background-color: #00bf18;
+}
+.container-social .social-list .btn-social-kakao:hover {
+    background-color: #f2c94c;
 }
