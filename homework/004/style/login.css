@@ -229,10 +229,6 @@ body {
     background-image: url(../images/message-circle.png);
 }
 
-.social-list [class^="btn-social"]:hover {
-    color: #fff;
-    transition: .5s;
-}
 .social-list .btn-social-google:hover {
     background-color: #767676;
 }
@@ -244,6 +240,10 @@ body {
 }
 .social-list .btn-social-kakao:hover {
     background-color: #f2c94c;
+}
+.social-list [class^="btn-social"]:hover {
+    color: #fff;
+    transition: .5s;
 }
 .social-list [class^="btn-social"]:hover::before {
     display: none;
