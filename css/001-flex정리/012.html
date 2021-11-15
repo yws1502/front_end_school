@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <style>
+        .container {
+            background-color: pink;
+            width: 70%;
+            margin: 50px auto;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .container .header-nav {
+            border: 1px solid black;
+            padding: 30px 0;
+        }
+
+        .container .content-container {
+            display: flex;
+        }
+        
+        .container .content {
+            border: 1px solid black;
+            height: 500px;
+            flex-grow: 3;
+        }
+        .container .side-bar {
+            border: 1px solid black;
+            height: 500px;
+            flex-grow: 1;
+        }
+
+        .container .footer {
+            border: 1px solid black;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="blind">메인 메이지</h1>
+    <main class="container">
+        <header class="header-nav">header</header>
+        <section class="content-container">
+            <article class="content">section > article</article>
+            <aside class="side-bar">aside</aside>
+        </section>
+        <footer class="footer">footer</footer>
+    </main>
+</body>
+</html>

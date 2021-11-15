@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>holy grail layout</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* util */
+        .blind {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            border: 10px solid black;
+        }
+
+        .item {
+            border: 10px solid brown;
+        }
+
+        .item:nth-child(1) {
+            border: 10px solid darkgreen;
+            width: 100%;
+        }
+        .item:nth-child(2) {
+            border: 10px solid pink;
+            width: 70%;
+        }
+        .item:nth-child(3) {
+            border: 10px solid darkblue;
+            width: 30%;
+        }
+        .item:nth-child(4) {
+            border: 10px solid tomato;
+            width: 100%;
+        }
+        
+        @media screen and (max-width: 800px) {
+            .item:nth-child(2) {
+                width: 100%;
+            }
+            .item:nth-child(3) {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="item">
+        <h1 class="blind">제목1</h1>
+        <nav>
+            <ul>
+                <li>menu1</li>
+                <li>menu2</li>
+                <li>menu3</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="item">
+        <h2 class="blind">제목2</h2>
+        <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium necessitatibus obcaecati ullam incidunt, voluptas hic impedit tempore consectetur adipisci quo veritatis perferendis dignissimos. Velit minus ab obcaecati, similique fugiat necessitatibus!
+        Harum facere, voluptate reprehenderit quas quam, modi, necessitatibus nobis facilis ipsam magni voluptas sunt? Accusamus deserunt earum, tenetur quos, aut iste dolorem commodi reiciendis rem iure ipsum animi fugit a.</article>
+    </section>
+    <aside class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illum culpa consequuntur iste voluptatibus saepe commodi ullam quaerat, error quod ipsum molestiae atque, dolor ex ipsa distinctio ab. Nesciunt, porro?</aside>
+    <footer class="item">footer</footer>
+</body>
+</html>
+
+<!-- 
+    전체를 flex로 감싼 후 flex-wrap으로 다음  요소들을 미뤄준다.
+    header는 width 100%
+    section + aside  100%
+    footer 100%
+-->
