@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-1</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        .container-color {
+            background-color: cornsilk;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .item-color {
+            background-color: darkcyan;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .container {
+            display: grid;
+            /* grid-template-columns: 200px 500px 200px; */
+            /* fr - fraction(분수) */
+            /* grid-template-columns: 1fr 2.5fr 1fr; */
+            /* grid-template-columns: 25% 50% 25%; */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 200px 500px 200px;
+            /* gap: 20px; */
+            row-gap: 10px;
+            column-gap: 5px;
+        }
+
+        /* 
+            그리드 트랙 : 행 또는 열,
+            그리드 셀 : 한칸
+            그리드 라인 : 셀 구분 선
+        */
+    </style>
+</head>
+<body>
+    <div class="container-color container">
+        <div class="item-color item header">Lorem.</div>
+        <div class="item-color item section">Lorem, ipsum.</div>
+        <div class="item-color item aside">Lorem, ipsum dolor.</div>
+        <div class="item-color item footer">Lorem ipsum dolor sit.</div>
+    </div>
+</body>
+</html>
