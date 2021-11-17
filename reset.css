@@ -56,7 +56,7 @@ img {
 	display: block;
 	width: 100%;
 }
-.blind {
+.text-hide {
     overflow: hidden;
     position: absolute;
     clip: rect(0,0,0,0);
