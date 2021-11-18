@@ -1,0 +1,71 @@
+@keyframes object-rotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(1turn);
+    }
+}
+
+@keyframes scene1-rotate {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(1turn);
+    }
+}
+
+@keyframes scene2-rotate {
+    0% {
+        transform: rotateX(0);
+    }
+    100% {
+        transform: rotateX(-1turn);
+    }
+}
+
+body {
+    width: 100vh;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scene-1 {
+    transform-style: preserve-3d;
+    animation: scene1-rotate 16s linear infinite;
+}
+
+.scene-2 {
+    transform-style: preserve-3d;
+    animation: scene2-rotate 16s linear infinite;
+}
+
+.circle {
+    font-size: 50px;
+    font-weight: bold;
+    animation: object-rotate 20s linear infinite;
+    transform-style: preserve-3d;
+}
+.circle .word {
+    transform-style: preserve-3d;
+}
+.scene-1 .circle span {
+    position: absolute;
+    transform: rotateY(calc(var(--char-index)*7deg)) translateZ(850px);
+}
+
+.scene-2 .circle span {
+    position: absolute;
+    transform: rotateY(calc(var(--char-index)*12deg)) translateZ(600px);
+}
