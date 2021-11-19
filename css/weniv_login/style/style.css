@@ -108,7 +108,7 @@ body {
 }
 
 .form-login .labl-hold {
-    display: block;
+    float: left;
     text-align: left;
     margin: 17px 0 21px;
     cursor: pointer;
