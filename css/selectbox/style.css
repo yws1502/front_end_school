@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: left;
+}
+
+article {
+    margin: 30px;
+}
+
+.cont-select .btn-select {
+    width: 200px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    padding-left: 14px;
+    margin-bottom: 9px;
+}
+
+.cont-select .list-member {
+    width: 200px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.list-member li button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 12px 138px 12px 18px;
+    background-color: #f8e4ff;
+}

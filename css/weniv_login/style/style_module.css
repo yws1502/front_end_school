@@ -64,7 +64,15 @@
     border-radius: 5px;
     text-indent: -38px;
 }
-
+.link-sns-login.icon-naver{
+    border-color:#00BF18;
+}
+.link-sns-login.icon-facebook{
+    border-color:#2D9CDB;
+}
+.link-sns-login.icon-kakao{
+    border-color:#F2C94C;
+}
 
 .link-sns-login::before{
     display: block;
@@ -73,27 +81,42 @@
     width:22px;
     height:22px;
     margin-left:16px;
-    background-image:url("../images/icon_google.png");
-}
-
-.link-sns-login.icon-naver{
-    border-color:#00BF18;
+    background-image:url("../images/css_sprites.png");
+    background-position: -10px -10px;
 }
 
 .link-sns-login.icon-naver::before{
-    background-image:url("../images/icon_naver.png");
+    background-position: -10px -94px;;
 }
-.link-sns-login.icon-facebook{
-    border-color:#2D9CDB;
-}
-
 .link-sns-login.icon-facebook::before{
-    background:url("../images/icon_facebook.png") center no-repeat;
+    background-position: -10px -136px;
+    height: 24px;
 }
-.link-sns-login.icon-kakao{
-    border-color:#F2C94C;
+.link-sns-login.icon-kakao::before{
+    background-position: -10px -52px;
 }
 
-.link-sns-login.icon-kakao::before{
-    background-image:url("../images/icon_kakao.png");
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .link-sns-login::before{
+        display: block;
+        content:"";
+        float:left;
+        width:22px;
+        height:22px;
+        margin-left:16px;
+        background-image:url("../images/css_sprites2.png");
+        background-size: 42px 170px;
+        background-position: -20px -198px;
+    }
+    
+    .link-sns-login.icon-naver::before{
+        background-position: -20px -294px;
+    }
+    .link-sns-login.icon-facebook::before{
+        background-position: -10px -136px;
+        height: 24px;
+    }
+    .link-sns-login.icon-kakao::before{
+        background-position: -20px -20px;
+    }
 }
