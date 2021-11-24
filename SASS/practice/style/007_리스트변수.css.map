@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,IAAI,CAAC;EACD,SAAS,EAJK,IAAI;CAKrB;;AAED,AAAA,IAAI,CAAC;EACD,SAAS,EARU,IAAI;CAS1B",
+    "sources": [
+        "007_리스트변수.scss"
+    ],
+    "names": [],
+    "file": "007_리스트변수.css"
+}

@@ -1,0 +1,18 @@
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+$font-sizes: ("h1": 45px, "h2": 19px, "p": 16px);
+
+div {
+    font-weight: map-get($font-weights, "bold");
+}
+
+section {
+    h2 {
+        font-size: map-get($font-sizes, "h3");
+    }
+}
+
+// 딕셔너리 or javascript object 형식으로 값 저장 변수
+// 나의 경우 파이썬을 사용해 딕셔너리라고 칭함
+// map-get() -> 첫번째 인자로 딕셔너리, 두번째 인자로 key값을 넣어준다.
+// map-keys() -> 딕셔너리의 key 값들을 리스트로 반환
+// map-values() -> 딕셔너리의 value 값들을 리스트로 반환

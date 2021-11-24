@@ -1,0 +1,11 @@
+.add-icon {
+    background : {
+        image: url("./assets/arrow-right-solid.svg");
+        position: center center;
+        repeat: no-repeat;
+        size: 14px 14px;
+    }
+}
+
+// 속성까지도 중첩해서 사용할 수 있다.
+// 위의 경우 background-image, ..-positoin, ..-repeat ..등 여러번 반복할 것을 위처럼 깔끔하게 가능

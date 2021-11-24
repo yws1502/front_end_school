@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,GAAG,CAAC;EACA,WAAW,EAJwC,GAAG;CAKzD",
+    "sources": [
+        "008_딕셔너리변수.scss"
+    ],
+    "names": [],
+    "file": "008_딕셔너리변수.css"
+}
