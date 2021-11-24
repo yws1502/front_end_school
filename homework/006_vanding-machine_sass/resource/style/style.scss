@@ -1,0 +1,182 @@
+$my-font: "Noto Sans KR", sans-serif;
+$pupple-color: #6327FE;
+$bg-color: #EAE8FE;
+$border-color: #BDBDBD;
+
+@mixin flex($horizon: center, $vertical: center) {
+    display: flex;
+    justify-content: $horizon;
+    align-items: $vertical;
+}
+
+@mixin visual_ele($display: block) {
+    position: absolute;
+    content: "";
+    display: $display;
+}
+
+@mixin font-modual($size, $weight, $height, $color: black) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $my-font;
+}
+
+#app {
+    background: $bg-color;
+}
+
+.tit-app {
+    text-align: center;
+    margin-bottom: 43px;
+    img {
+        width: 436px;
+        height: 204px;
+    }
+}
+
+.wrap {
+    @include flex;
+}
+
+.vending-machine [class^="cont"] [class^="btn"] {
+    @include font-modual(13px, 500, 19px);
+    width: 94px;
+    height: 33px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+
+.vending-machine {
+    width: 360px;
+    height: 545px;
+    background-color: #fff;
+    margin: 18px;
+    .list-item {
+        @include flex(space-between);
+        flex-wrap: wrap;
+        padding: 31px 27px 0;
+        margin-bottom: 20px;
+        li {
+            position: relative;
+            width: 94px;
+            height: 130px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+            &:active::before {
+                @include visual_ele;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border: 3px solid $pupple-color;
+                border-radius: 10px;
+            }
+            .img-item {
+                display: block;
+                width: 36px;
+                height: 65px;
+                margin: 11px 29px 0;
+            }
+            .tit-item {
+                @include font-modual(9px, 500, 13px);
+                display: block;
+                margin: 7px 0;
+            }
+            .txt-item {
+                @include font-modual(12px, 500, 100%, #fff);
+                display: block;
+                width: 70px;
+                border-radius: 50px;
+                background-color: $pupple-color;
+                padding: 5px 15px;
+                margin: 0 auto;
+            }
+        }
+    }
+    .cont-return {
+        @include flex(space-between);
+        margin: 0 27px 11px;
+        .info-balance {
+            @include font-modual(14px, 500, 20px);
+            background-color: $bg-color;
+            width: 200px;
+            border-radius: 5px;
+            padding: 6px 10px;
+            .txt-balance {
+                float: right;
+            }
+        }
+        .btn-return {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+    .cont-put {
+        @extend .cont-return;
+        .inp-put {
+            @include font-modual(14px, 500, 20px);
+            width: 200px;
+            border: 1px solid $border-color;
+            border-radius: 5px;
+            padding: 6px 10px;
+        }
+    }
+    .cont-get {
+        @extend .cont-return;
+        .btn-get {
+            height: 106px;
+            background-color: $pupple-color;
+            color: #fff;
+        }
+        .list-item-staged {
+            background-color: $bg-color;
+            width: 200px;
+            height: 106px;
+            border: 1px solid $border-color;
+            border-radius: 5px; 
+            padding: 12px 18px 0 12px;
+            overflow: auto;
+            li + li {
+                margin-top: 6px;
+            }
+            .item-staged {
+                background-color: #fff;
+                height: 46px;
+                border-radius: 5px;
+                padding: 0 8px 0 10px;
+                .img-item {
+                    float: left;
+                    width: 18px;
+                    height: 33px;
+                    margin-top: 6px;
+                }
+                .txt-item {
+                    @include font-modual(9px, 500, 44px);
+                    margin-left: 10px;
+                }
+                .num-counter {
+                    @include font-modual(14px, 500, 17px);
+                    float: right;
+                    vertical-align: 0px;
+                    border: 1px solid $border-color;
+                    padding: 4px 11px 6px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
+
+.my-info {
+    @extend .vending-machine;
+}

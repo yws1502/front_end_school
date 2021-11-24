@@ -1,0 +1,219 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app {
+  background: #EAE8FE;
+}
+
+.tit-app {
+  text-align: center;
+  margin-bottom: 43px;
+}
+
+.tit-app img {
+  width: 436px;
+  height: 204px;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vending-machine [class^="cont"] [class^="btn"], .my-info [class^="cont"] [class^="btn"] {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19px;
+  color: black;
+  width: 94px;
+  height: 33px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.vending-machine, .my-info {
+  width: 360px;
+  height: 545px;
+  background-color: #fff;
+  margin: 18px;
+}
+
+.vending-machine .list-item, .my-info .list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 31px 27px 0;
+  margin-bottom: 20px;
+}
+
+.vending-machine .list-item li, .my-info .list-item li {
+  position: relative;
+  width: 94px;
+  height: 130px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+}
+
+.vending-machine .list-item li:active::before, .my-info .list-item li:active::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 3px solid #6327FE;
+  border-radius: 10px;
+}
+
+.vending-machine .list-item li .img-item, .my-info .list-item li .img-item {
+  display: block;
+  width: 36px;
+  height: 65px;
+  margin: 11px 29px 0;
+}
+
+.vending-machine .list-item li .tit-item, .my-info .list-item li .tit-item {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 13px;
+  color: black;
+  display: block;
+  margin: 7px 0;
+}
+
+.vending-machine .list-item li .txt-item, .my-info .list-item li .txt-item {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 100%;
+  color: #fff;
+  display: block;
+  width: 70px;
+  border-radius: 50px;
+  background-color: #6327FE;
+  padding: 5px 15px;
+  margin: 0 auto;
+}
+
+.vending-machine .cont-return, .my-info .cont-return, .vending-machine .cont-put, .my-info .cont-put, .vending-machine .cont-get, .my-info .cont-get {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 27px 11px;
+}
+
+.vending-machine .cont-return .info-balance, .my-info .cont-return .info-balance, .vending-machine .cont-put .info-balance, .my-info .cont-put .info-balance, .vending-machine .cont-get .info-balance, .my-info .cont-get .info-balance {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: black;
+  background-color: #EAE8FE;
+  width: 200px;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.vending-machine .cont-return .info-balance .txt-balance, .my-info .cont-return .info-balance .txt-balance, .vending-machine .cont-put .info-balance .txt-balance, .my-info .cont-put .info-balance .txt-balance, .vending-machine .cont-get .info-balance .txt-balance, .my-info .cont-get .info-balance .txt-balance {
+  float: right;
+}
+
+.vending-machine .cont-return .btn-return, .my-info .cont-return .btn-return, .vending-machine .cont-put .btn-return, .my-info .cont-put .btn-return, .vending-machine .cont-get .btn-return, .my-info .cont-get .btn-return {
+  background-color: #fff;
+  color: #000;
+}
+
+.vending-machine .cont-put .inp-put, .my-info .cont-put .inp-put {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: black;
+  width: 200px;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.vending-machine .cont-get .btn-get, .my-info .cont-get .btn-get {
+  height: 106px;
+  background-color: #6327FE;
+  color: #fff;
+}
+
+.vending-machine .cont-get .list-item-staged, .my-info .cont-get .list-item-staged {
+  background-color: #EAE8FE;
+  width: 200px;
+  height: 106px;
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  padding: 12px 18px 0 12px;
+  overflow: auto;
+}
+
+.vending-machine .cont-get .list-item-staged li + li, .my-info .cont-get .list-item-staged li + li {
+  margin-top: 6px;
+}
+
+.vending-machine .cont-get .list-item-staged .item-staged, .my-info .cont-get .list-item-staged .item-staged {
+  background-color: #fff;
+  height: 46px;
+  border-radius: 5px;
+  padding: 0 8px 0 10px;
+}
+
+.vending-machine .cont-get .list-item-staged .item-staged .img-item, .my-info .cont-get .list-item-staged .item-staged .img-item {
+  float: left;
+  width: 18px;
+  height: 33px;
+  margin-top: 6px;
+}
+
+.vending-machine .cont-get .list-item-staged .item-staged .txt-item, .my-info .cont-get .list-item-staged .item-staged .txt-item {
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 44px;
+  color: black;
+  margin-left: 10px;
+}
+
+.vending-machine .cont-get .list-item-staged .item-staged .num-counter, .my-info .cont-get .list-item-staged .item-staged .num-counter {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: black;
+  float: right;
+  vertical-align: 0px;
+  border: 1px solid #BDBDBD;
+  padding: 4px 11px 6px;
+  margin-top: 8px;
+}
+/*# sourceMappingURL=style.css.map */
