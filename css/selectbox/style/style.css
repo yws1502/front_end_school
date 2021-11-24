@@ -39,14 +39,19 @@ button {
   background-repeat: no-repeat;
 }
 
-.cont-select .btn-select:focus-within::after {
+.cont-select .btn-select.on::after {
   background-image: url(../images/close.png);
 }
 
 .cont-select .list-member {
   border: 1px solid #C4C4C4;
   border-radius: 10px;
+  display: none;
   width: 200px;
+}
+
+.cont-select .list-member.on {
+  display: block;
 }
 
 .cont-select .list-member button {

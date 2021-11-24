@@ -41,13 +41,17 @@ button {
             background-size: contain;
             background-repeat: no-repeat;
         }
-        &:focus-within::after {
+        &.on::after{
             background-image: url(../images/close.png);
         }
     }
-    .list-member  {
+    .list-member {
         @include border-module(1px, #C4C4C4, 10px);
+        display: none;
         width: 200px;
+        &.on {
+            display: block;
+        }
         button {
             @include font-module(14px, normal, 16px);
             display: block;
