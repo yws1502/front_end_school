@@ -1,22 +1,5 @@
-@mixin ellipse {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-@mixin font-module($size, $weight, $height, $color: black) {
-    font-size: $size;
-    font-weight: $weight;
-    line-height: $height;
-    color: $color;
-}
-
-@mixin border-module($pixel, $color: black, $radious: false) {
-    border: $pixel solid $color;
-    @if ($radious) {
-        border-radius: $radious;
-    }
-}
+@import url("variable.scss");
+@import url("mixin.scss");
 
 * {
     margin: 0;
@@ -30,3 +13,50 @@ button {
     cursor: pointer;
 }
 
+.cont-select {
+    position: relative;
+    width: 200px;
+    margin: 50px;
+    .btn-select {
+        @include font-module(12px, normal, 14px);
+        @include border-module(1px, $border-color, 10px);
+        @include ellipse;
+        width: 100%;
+        text-align: left;
+        padding: 13px 14px;
+        background: url(../images/open.png) no-repeat center right 10px;
+        &.on {
+            background: url(../images/close.png) no-repeat center right 10px;
+        }
+        &.on:hover,
+        &.on:focus {
+            @include border-module(1px, $focus-color, 10px);
+            outline: 3px solid $outline-color;
+        }
+    }
+    .list-member {
+        display: none;
+        @include border-module(1px, $border-color, 10px);
+        position: absolute;
+        top: 49px;
+        width: 100%;
+        li {
+            padding: 5px 8px;
+            button {
+                @include font-module(14px, normal, 16px);
+                width: 100%;
+                border-radius: 10px;
+                text-align: left;
+                padding: 7px 10px;
+                &:hover,
+                &:focus {
+                    background-color: $hover-color;
+                }
+
+            }
+        }
+    }
+    .btn-select.on + .list-member {
+        display: block;
+    }
+}

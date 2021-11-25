@@ -10,4 +10,68 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.cont-select {
+  position: relative;
+  width: 200px;
+  margin: 50px;
+}
+
+.cont-select .btn-select {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 14px;
+  color: black;
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  text-align: left;
+  padding: 13px 14px;
+  background: url(../images/open.png) no-repeat center right 10px;
+}
+
+.cont-select .btn-select.on {
+  background: url(../images/close.png) no-repeat center right 10px;
+}
+
+.cont-select .btn-select.on:hover, .cont-select .btn-select.on:focus {
+  border: 1px solid #9B51E0;
+  border-radius: 10px;
+  outline: 3px solid #F8E4FF;
+}
+
+.cont-select .list-member {
+  display: none;
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+  position: absolute;
+  top: 49px;
+  width: 100%;
+}
+
+.cont-select .list-member li {
+  padding: 5px 8px;
+}
+
+.cont-select .list-member li button {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 16px;
+  color: black;
+  width: 100%;
+  border-radius: 10px;
+  text-align: left;
+  padding: 7px 10px;
+}
+
+.cont-select .list-member li button:hover, .cont-select .list-member li button:focus {
+  background-color: #F8E4FF;
+}
+
+.cont-select .btn-select.on + .list-member {
+  display: block;
+}
 /*# sourceMappingURL=style.css.map */
