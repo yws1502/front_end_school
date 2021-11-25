@@ -1,0 +1,32 @@
+@mixin ellipse {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@mixin font-module($size, $weight, $height, $color: black) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+}
+
+@mixin border-module($pixel, $color: black, $radious: false) {
+    border: $pixel solid $color;
+    @if ($radious) {
+        border-radius: $radious;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
