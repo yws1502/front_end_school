@@ -1,0 +1,18 @@
+@mixin flex($horizon: center, $vertical: center) {
+    display: flex;
+    justify-content: $horizon;
+    align-items: $vertical;
+}
+
+@mixin visual_ele($display: block) {
+    position: absolute;
+    content: "";
+    display: $display;
+}
+
+@mixin font-modual($size, $weight, $height, $color: black) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+}
