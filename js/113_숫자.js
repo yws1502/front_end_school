@@ -67,3 +67,5 @@ document.write(`Math.abs(-5) : ${Math.abs(-5)} <br>`);
 document.write(`Math.random() : ${Math.random()*10} <br>`);
 document.write(`Math.max(10, 20, 30, 40, 50) : ${Math.max(10, 20, 30, 40, 50)} <br>`);
 document.write(`Math.min(10, 20, 30, 40, 50) : ${Math.min(10, 20, 30, 40, 50)} <br>`);
+
+
