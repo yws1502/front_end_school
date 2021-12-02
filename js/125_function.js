@@ -84,3 +84,7 @@ let arr = [1,2,3,4,5];
 let a = arr.map(x => (x*2));
 
 console.log(a);
+
+// javascript에서는 call by value 밖에 없다
+// 또한 array, object는 function안 에서 값을 인수로 받은 값을 바꿀 수 있다.
+// 하지만 단순 변수일 경우는 값이 바뀌지 않는다 따라서 파라미터로 들어온 값이 array와 object인 경우 주의하자!

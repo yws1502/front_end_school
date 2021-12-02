@@ -68,3 +68,83 @@ let a = [1,2,3,[4,5]];
 console.log(a.flat());
 
 console.log(a.forEach(x => (x+2)));
+
+/*
+map과 fillter
+*/
+
+let array = [1, 4, 9, 16];
+let 값1 = array.map(x => x * 2);
+
+array.map(Math.sqrt).map(x=>x**3)
+
+let data = [
+    {
+        class: 1,
+        number: 1,
+        name: "woosang",
+        score: 55
+    },
+    {
+        class: 1,
+        number: 2,
+        name: "other",
+        score: 50
+    },
+    {
+        class: 1,
+        number: 3,
+        name: "namhee",
+        score: 55
+    },
+    {
+        class: 1,
+        number: 4,
+        name: "girdong",
+        score: 50
+    },
+]
+
+let sum = 0;
+
+// forEach는 반환되는 값이 없다.
+data.map(x => (x.score)).forEach(y => (sum += y))
+
+
+let data = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+let newData = data.map(x => x.map(n => n*2));
+
+// javascript에서는 call by value 밖에 없다
+// 또한 array, object는 function안 에서 값을 인수로 받은 값을 바꿀 수 있다.
+// 하지만 단순 변수일 경우는 값이 바뀌지 않는다 따라서 파라미터로 들어온 값이 array와 object인 경우 주의하자!
+
+let x = [10, 20, 30, 40];
+
+function test(a) {
+    a[0] = 1000;
+}
+
+test(x);
+console.log(x) // [1000, 20, 30, 40]
+
+
+let x = 10;
+
+function test(a) {
+    a = 1000;
+}
+
+test(x);
+console.log(x) // 10
+
+
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// mdn 예제
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result);
