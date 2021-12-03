@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <button>hello</button>
+
+    <button>Make me Blue!</button>
+
+
+    <script>
+        // 이벤트의 타입에는 click, mouseover, mouseout, wheel 등 다양한 이벤트를 감지합니다.
+        // const myBtn = document.querySelector('button');
+
+        // myBtn.addEventListener('wheel', () => {
+        //     console.log('hello word');
+        // })
+
+        const myBtn = document.querySelector('button');
+
+        myBtn.addEventListener('click', () => {
+            // myBtn.classList.add('blue');
+
+            // myBtn.classList.remove("blue"); // 클래스를 제거
+            myBtn.classList.toggle("blue"); // 클래스를 토글(있다면 제거, 없다면 있게)
+            const bool = myBtn.classList.contains("blue"); // 해당하는 클래스가 있는지 혹인하는 친구(boolean으로 반환)
+            console.log(bool);
+        })
+
+    </script>
+</body>
+</html>

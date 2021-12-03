@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic-light</title>
+    <link rel="stylesheet" href="../../reset.css">
+    <style>
+        .traffic-symbol {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        .btn-wrap {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin: 30px auto;
+        }
+
+        .traffic-symbol.red {
+            background-color: red;
+        }
+        .traffic-symbol.yellow {
+            background-color: yellow;
+        }
+        .traffic-symbol.green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="traffic-symbol"></div>
+        <ul class="btn-wrap">
+            <li><button class="red-btn">Red</button></li>
+            <li><button class="yellow-btn">Yellow</button></li>
+            <li><button class="green-btn">Green</button></li>
+        </ul>
+    </section>
+    <script>
+        const traffic_symbol = document.querySelector('.traffic-symbol');
+        const red_btn = document.querySelector('.red-btn');
+        const yellow_btn = document.querySelector('.yellow-btn');
+        const green_btn = document.querySelector('.green-btn');
+
+        const btn = document.querySelectorAll('button');
+        console.log(btn[0])
+
+        red_btn.addEventListener('click', () => {
+            traffic_symbol.classList.remove('yellow', 'green');
+            traffic_symbol.classList.add('red');
+        })
+        yellow_btn.addEventListener('click', () => {
+            traffic_symbol.classList.remove('red', 'green');
+            traffic_symbol.classList.add('yellow');
+        })
+        green_btn.addEventListener('click', () => {
+            traffic_symbol.classList.remove('red', 'yellow');
+            traffic_symbol.classList.add('green');
+        })
+    </script>
+</body>
+</html>
