@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+  <!-- <link rel="stylesheet" href="reset.css"> -->
+</head>
+<body>
+  <script src="149_data.js"></script>
+  <script>
+    class GetUserData {
+      login(id, pwd, success, fail) {
+        const data = userdb.find(user => (user.id === id) && (user.pw === pwd));
+        
+        if (data) {
+          success(id);
+        } else {
+          fail(new Error("failed login"));
+        }
+      }
+      getUserDataSet(user, success, fail) {
+        const data = userdb.find(user => (user.id === id));
+        
+        if (data) {
+          success({
+            id : data.id,
+            picture : data.picture,
+            company : data.company,
+            email : data.email,
+            grade : data.grad,
+          });
+        } else {
+          fail(new Error("Data base road 실패"))
+        }
+      }
+    }
+
+    const userData = new GetUserData();
+    const id = "Wendi";
+    const pw = "1234";
+    userData.login(
+      id,
+      pw,
+      (userId) => {
+        userData.getUserDataSet(
+          userId,
+          (userBasicInfo) => {
+            // grade에 따른 콜백을 하나 더 넣어줄 수 있습니다.
+            console.log(userBasicInfo);
+          },
+          (fail) => {
+            console.log(fail);
+          }
+        );
+      },
+      (fail) => {
+        console.log(fail);
+      },
+    );
+  </script>
+</body>
+</html>
