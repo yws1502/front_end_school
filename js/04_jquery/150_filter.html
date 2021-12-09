@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+      
+  </style>
+</head>
+<body>
+  <h1 id="one">jQuery 실습</h1>
+  <button class="btn1">클릭해!!</button>
+  <p class="practice">jQuery 실습을 하고 있습니다.</p>
+  <img>
+  <br>
+  <textarea name="note" id="note" cols="30" rows="10"></textarea>
+  <button class="btn2">메모장 내용 경고창으로 출력</button>
+  <p id="p3">hello world</p>
+  <div class="wrapper">
+    <h1 class="title">TITLE</h1>
+    <ul>
+      <li class="items">item 1</li>
+      <li class="items">item 2</li>
+      <li class="items">item 3</li>
+    </ul>
+  </div>
+  <ul class="ul2">
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+  </ul>
+  <script>
+    // document.getElementById("one").innerHTML = "!!!!"
+    $("#one").text("Hello jQuery");
+    // $("p").hide(); // 숨기기 display: none으로 됨
+    $(".btn1").click(() => {
+      alert("클릭했네요?")
+    });
+    // $(".practice").text("<strong>실습</strong> 중이에요!");
+    $(".practice").html("<strong>실습</strong> 중이에요!");
+    $(".practice").css("color", "red");
+    $(".practice").css("backgroundColor", "pink");
+    // jQuery는 카멜 표기법을 따른다.
+    $("img").attr("src", "a.jpg");
+    $("img").attr("data-name", "profile").attr("data-hello", "world");
+    /*
+    eq - equal
+    ne - not equal
+    lt - little
+    le - little or equal
+    gt - greater
+    ge - greater or equal
+    */
+    $(".btn2").click(() => {
+      let noteVal = $("#note").val();
+      $("#note").val("값을 입력하세요!");
+      alert(noteVal);
+    })
+
+    // 1. items 부모를 찾아 background-color를 파란색으로 바꿔주세요.
+    $(".items").parent().css("backgroundColor", "blue");
+
+    // 2. items 2번째 color를 빨간색으로 바꿔주세요
+    $(".items:nth-child(2)").css("color", "red");
+
+    // 3. ul2의 자식인 li요소를 선택하여 1번 부터 3번까지 color를 녹색으로 바꿔주세요.
+    $(".ul2 > li:lt(3)").css("color", "green");
+    // $(".ul2").children("li:lt(3)").css("color", "green");
+    
+    $(".ul2 > li:gt(2):lt(8)").css("color", "pink");
+    
+    // 4. ul2의 자식인 li요소를 선택하여 7번 부터 10번까지 color를 파란색, background-color를 빨간색으로 바꿔주세요
+    $(".ul2 > li:gt(6)").css("color", "blue").css("backgroundColor", "red");
+    // $(".ul2").children("li:gt(6)").css("color", "blue").css("backgroundColor", "red");
+
+  </script>
+</body>
+</html>

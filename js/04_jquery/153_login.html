@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax 통신 연습</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <label for="inputId">아이디</label>
+  <input type="text" id="inputId" placeholder="아이디를 입력하세요">
+  <label for="inputPwd">비밀번호</label>
+  <input type="password" id="inputPwd" placeholder="비밀번호를 입력하세요">
+  <button class="dataLoadButton">로그인</button>
+  <div class="dataField">data</div>
+  <script>
+
+    $('.dataLoadButton').click(function() {
+      $.ajax({
+        url:'https://raw.githubusercontent.com/yws1502/ajaxlogintest/main/userdata.json',
+        async: true, 
+        success: function(response){
+          const userInfo = JSON.parse(response);
+          let id = $("#inputId").val().toLowerCase();
+          let pwd = $("#inputPwd").val();
+          let user = userInfo.find(user => (user.id.toLowerCase() == id) && (user.pw == pwd));
+          let user1 = userInfo.find((user) => {(user.id.toLowerCase() == id) && (user.pw == pwd)});
+          console.log(user);
+          console.log(user1);
+          if (user) {
+            console.log('성공');
+            // 여기에다가 로그인 모달창 display: block;
+          } else {
+            console.log('실패');
+            // 로그인 실패했다는 경고창 display: block으로 해주기
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

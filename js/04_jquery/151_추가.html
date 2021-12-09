@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    // 문서가 다 준비되면
+    $(function() { // 이것을  주석처리하면 실행이 안됩니다. html이 다 로드되지 않은 상태이기 때문에 그렇습니다.
+      $(".box").fadeOut(3000).fadeIn(3000);
+    });
+  </script>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: palevioletred;
+    }
+    .box2 {
+      width: 100px;
+      height: 100px;
+      opacity: 0.3;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="title">TITLE</h1>
+    <ul>
+      <li class="items">item 1</li>
+      <li class="items">item 2</li>
+      <li class="items">item 3</li>
+    </ul>
+  </div>
+  <ul class="ul2">
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+    <li>hello</li>
+  </ul>
+  <div id="div1">hello world</div>
+  <div class="one blue">hello world</div>
+  <div class="two blue">hello world</div>
+  <p class="blue">hello world</p>
+
+  <div class="three">hello</div>
+  <div class="three blue">hello</div>
+
+  <div class="box">hello world</div>
+
+  <div class="box2">hello world</div>
+  <button class="btn3">click</button>
+  <script>
+    $("ul").append("<li>hello world end</li>");
+    $("ul").prepend("<li>hello world start</li>");
+    $("ul").after("<h2>끝</h2>");
+    $("ul").before("<h2>시작!</h2>");
+
+    // $("#div1").remove();
+    $("#div1").addClass("important");
+    $(".one, .two, p").removeClass("blue");
+    $(".three").toggleClass("blue");
+    // $(".box").fadeOut(3000).fadeInt(3000);
+    
+    // https://electronic-moongchi.tistory.com/75
+    // $(".box").click(function() {
+    //   $(this).stop();
+    // });
+
+    // div 클릭했을 때 안 보이게 하기
+    // dom이 준비되면 실행해라.
+    $(function() {
+      $(".box").click(function() {
+        $(this).hide();
+      });
+    });
+
+    //jQuery - animate
+    // 버튼 클릭했을 때 변화주기
+    $(".btn3").click(function() {
+      $(".box2").animate({
+        width: "300px",
+        height: "300px",
+        opacity: 1,
+      }, "slow");
+    })
+
+    // hover event
+    $(".box2").hover(function() {
+      $(this).css("background-color", "yellow");
+    }, function() {
+      $(this).css("background-color", "blue");
+    });
+
+    $(".box2").mouseenter(() => {
+      alert("You entered p1!");
+    })
+
+    $(".box2").mouseleave(() => {
+      alert("Bye! you now leave p1!");
+    })
+  </script>
+</body>
+</html>
