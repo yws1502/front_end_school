@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event this</title>
+</head>
+
+<body>
+  <article class="parent">
+    <ol>
+      <li><button class="btn-first" type="button">버튼1</button></li>
+      <li><button type="button">버튼2</button></li>
+      <li><button type="button">버튼3</button></li>
+    </ol>
+  </article>
+
+  <script>
+    // event가 연결된 요소를 참조한다.
+    const parent = document.querySelector('.parent');
+
+    parent.addEventListener('click', function (event) {
+      console.log(this);
+      console.log(event.target);
+    })
+
+    // 화살표 함수는 위의 익명 함수와 다르다.
+    // 화살표 함수의 this는 부모의 scope를 가르킨다.
+    // parent.addEventListener('click', (event) => {
+    //   console.log(this);
+    //   console.log(event.target);
+    // })
+  </script>
+</body>
+
+</html>
