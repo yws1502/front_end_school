@@ -548,19 +548,332 @@ console.log(quickSort(inputValue));
 [자몽, 수박, 체리] 
 
 // 5. 트리와 그래프
-
+// 5.1 트리
+// 트리의 기본 형태
+// value
+// child - (left, right)
+const tree = {
+  root: {
+      value: 5,
+      left: {
+          value: 3,
+          left: {
+              value: 1,
+              left : null,
+              right: null
+          },
+          right : {
+              value: 4,
+              left : null,
+              right: null
+          }
+      },
+      right: {
+          value: 8,
+          left: {
+              value: 6,
+              left : null,
+              right: null
+          },
+          right : {
+              value: 9,
+              left : null,
+              right: null
+          }
+      }
+  }
+}
 
 // 6. 트리의 순회
+/*
+// Object로 Linked list로 tree를 만들 수 있는데 
+// 굳이 class로 만드는 이유는?
+1. 확장성
+2. OOP에 철학에 맞추기 때문에
+*/
 
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.left = null;
+    this.right = null;
+    // 이렇게 하면 다중 트리도 만들 수 잇음
+    // this.child = [];
+  }
+}
 
+class Tree {
+  constructor(data) {
+    let init = new Node(data);
+    this.root = init;
+    this.count = 0;
+  }
+
+  length() {
+    return this.count;
+  }
+
+  insert(data) {
+    let newNode = new Node(data);
+    let currNode = this.root;
+    this.count += 1;
+
+    while (currNode) {
+      if (data === currNode.data) {
+        // 중복된 값은 탈락
+        return;
+      }
+      if (data < currNode.data) {
+        // 들어온 데이터가 작으면 왼쪽에
+        // 비어있으면 데이터를 넣고, 비어있지 않으면 타고 다시 내려간다.
+        if (!currNode.left) {
+          currNode.left = newNode;
+          return;
+        }
+        currNode = currNode.left;
+      }
+      if (data > currNode.data) {
+        // 들어온 데이터가 크면 오른쪽에
+        // 비어있으면 데이터를 넣고, 비어있지 않으면 타고 다시 내려간다.
+        if (!currNode.right) {
+          currNode.right = newNode;
+          return;
+        }
+        currNode = currNode.right;
+      }
+    }
+  }
+  
+  DFS() {
+    // 깊이 우선 탐색, Depth First Search, stack 자료구조 이용
+    let result = [];
+    let stack = [this.root];
+
+    while (stack.length) {
+      let current = stack.pop();
+      if (current.right) {
+        stack.push(current.right);
+      }
+      if (current.left) {
+        stack.push(current.left);
+      }
+      result.push(current.data);
+    }
+    return result;
+  }
+
+  BFS() {
+    // 너비 우선 탐색, Breadth First Search, Queue 자료구조 이용
+    let result = [];
+    let queue = [this.root];
+
+    while (queue.length) {
+      let current = queue.shift();
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+      result.push(current.data);
+    }
+    return result;
+  }
+}
+
+let t = new Tree(5); // root노드는 처음에!!
+t.insert(3);
+t.insert(8);
+t.insert(1);
+t.insert(4);
+t.insert(6);
+t.insert(9);
+console.log(t);
+
+t.DFS();
+
+t.BFS();
 
 // 목차(실전 코딩테스트 풀이)
+// 유틸 
+const zip = function(a, b) {a.map((value, index) => [value, b[index]])};
+const fillZero = function(n, arr) { return "0".repeat(n - arr.length) + arr }
+
 // 1. 18년도
+// 주제 : 2진법, 진법 연산, replace, or 연산
+let x = 9;
+x.toString();
+x.toString(2);
+x.toString(8);
+x.toString(16);
+
+// 비트연산
+(9 | 30).toString(2).replace(/1/g, '#').replace(/0/g, ' '); // "#####"
+(9 & 30).toString(2).replace(/1/g, '#').replace(/0/g, ' '); // "#    "
+
+//정답 1
+let n =	5;
+let arr1 =	[9, 20, 28, 18, 11];
+let arr2 =	[30, 1, 21, 17, 28];
 
 
-// 2. 19년도
+function solution(n, arr1, arr2) {
+  let result = [];
+  const fillSpace = function(n, arr) { return " ".repeat(n - arr.length) + arr }
+
+  for (let i = 0; i < n; i++) {
+    let temp = fillSpace(n, (arr1[i] | arr2[i]).toString(2).replace(/1/g, '#').replace(/0/g, ' '));
+    result.push(temp);
+  }
+  return result;
+}
+
+console.log(solution(n, arr1, arr2));
+
+// 정답 2
+let n =	5;
+let arr1 =	[9, 20, 28, 18, 11];
+let arr2 =	[30, 1, 21, 17, 28];
 
 
+function solution(n, arr1, arr2) {
+  let result = [];
+  const zip = function(a, b) {a.map((value, index) => [value, b[index]])};
+  const fillSpace = function(n, arr) { return " ".repeat(n - arr.length) + arr }
+
+  for (let i = 0; i < n; i++) {
+    let temp = fillSpace(n, (arr1[i] | arr2[i]).toString(2).replace(/1/g, '#').replace(/0/g, ' '));
+    result.push(temp);
+  }
+  return result;
+}
+
+console.log(solution(n, arr1, arr2));
+
+// 다트게임
+// https://programmers.co.kr/learn/courses/30/lessons/17682
+
+testcase = [
+  "1S2D*3T",
+  "1D2S#10S",
+  "1D2S0T",
+]
+for (let ts of testcase) {
+  console.log(solution(ts))
+}
+
+const dartResult = "1D2S#10S";
+
+let answer = [];
+let result = 0;
+let temp = 0; // 임시점수
+
+for (let i = 0; i < dartResult.length; i++) {
+  if (dartResult[i] >= 0 && dartResult[i] <= 9) {
+    if (dartResult[i] == 1 && dartResult[i+1] == 0) {
+      temp = 10;
+      i++;
+    } else {
+      temp = parseInt(dartResult[i]);
+    }
+  } else if (dartResult[i] === "S") {
+    answer.push(temp);
+  } else if (dartResult[i] === "D") {
+    answer.push(temp**2);
+  } else if (dartResult[i] === "T") {
+    answer.push(temp**3);
+  } else if (dartResult[i] === "*") {
+    answer[answer.length-1] *= 2;
+    if (answer.length - 2 >= 0) {
+      answer[answer.length-2] *= 2;
+    }
+  } else if (dartResult[i] === "#") {
+    answer[answer.length-1] *= -1;
+  }
+  for (const el of answer) {
+    result += el;
+  }
+  return result;
+}
+
+
+console.log(answer);
+
+function solution(dartResult) {
+  let answer = [];
+  let result = 0;
+  let temp = 0; // 임시점수
+
+  for (let i = 0; i < dartResult.length; i++) {
+    if (dartResult[i] >= 0 && dartResult[i] <= 9) {
+      if (dartResult[i] == 1 && dartResult[i+1] == 0) {
+        temp = 10;
+        i++;
+      } else {
+        temp = parseInt(dartResult[i]);
+      }
+    } else if (dartResult[i] === "S") {
+      answer.push(temp);
+    } else if (dartResult[i] === "D") {
+      answer.push(temp**2);
+    } else if (dartResult[i] === "T") {
+      answer.push(temp**3);
+    } else if (dartResult[i] === "*") {
+      answer[answer.length-1] *= 2;
+      if (answer.length - 2 >= 0) {
+        answer[answer.length-2] *= 2;
+      }
+    } else if (dartResult[i] === "#") {
+      answer[answer.length-1] *= -1;
+    }
+  }
+  for (const el of answer) {
+    result += el;
+  }
+  return result;
+}
+
+/// 캐시 문제 keyword : LRU 알고리즘, 페이지 교체 알고리즘
+// https://programmers.co.kr/learn/courses/30/lessons/17680
+
+testcase = [
+  [3, ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]],
+  [3, ["Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"]],
+  [2, ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"]]
+]
+
+function solution(cacheSize, cities) {
+  let time = 0;
+  let cache = [];
+  for (let i = 0; i < cities.length; i++) {
+    const city = cities[i].toLowerCase();
+    let index = cache.indexOf(city);
+
+    if ( index !== -1 ){
+      // hit
+      time += 1;
+      cache.splice(index, 1);
+      cache.push(city);
+    } else {
+      // miss
+      time += 5;
+      cache.push(city);
+      if (cache.length > cacheSize) {
+        cache.shift();
+      }
+    }
+  }
+
+  return time;
+}
+
+a = 3;
+b = ["Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"];
+console.log(solution(a, b));
+
+
+
+// 2. 19년도 
 // 3. 20년도
 
 
