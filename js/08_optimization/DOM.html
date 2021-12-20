@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>돔 접근 테스트</h1>
+  <main>
+    <!-- <article class="parent">
+      <figure>
+        <img src="https://images-ext-1.discordapp.net/external/miv509J6UdXffMxzcD5G-E4WXKD6d8FgyX5VdWKVE7Y/https/pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg" alt="" class="figImg">
+        <figcaption class="figCap">유재석씨가 코로나에 감염되었다는 소식입니다!</figcaption>
+      </figure>
+    </article> -->
+  </main>
+  <script>
+    const main = document.querySelector("main");
+    // 경량화된 가상으로 만든 DOM(메모리 안에 존재하는 DOM)
+    // DocumentFragment를 사용하는 이유
+    // element를 생성하고 실제 존재하는 DOM에 계속 업데이트하는 것은 리소스가 든다.
+    // 그런데 가상 돔은 메모리에 있어서 가상 돔을 업데이트하는 것이 더 리소스가 덜 든다.
+    // 정리하면 실제 DOM을 계속해서 업데이트하게 되면 리소스가 많이 들기 때문에 가상 돔을 사용
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 10; i++) {
+      const article = document.createElement("article");
+      article.innerHTML = `
+      <article class="parent">
+        <figure>
+          <img src="https://images-ext-1.discordapp.net/external/miv509J6UdXffMxzcD5G-E4WXKD6d8FgyX5VdWKVE7Y/https/pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg" alt="" class="figImg">
+          <figcaption class="figCap">유재석씨가 코로나에 감염되었다는 소식입니다!</figcaption>
+        </figure>
+      </article>
+      `
+      frag.appendChild(article);
+      // main.appendChild(article);
+    }
+    main.appendChild(frag);
+
+    // // DOM 탐색을 최소화해줘야 한다.
+    // // 항상 document로 딱딱딱 찍지말고 묶어줄 수 있는 부모로 범위를 줄여주면 좋다.
+    // const parent = document.querySelector(".parent");
+    // const targetImg = parent.querySelector(".figImg");
+    // const targetTxt = parent.querySelector(".figCap");
+
+    // // const targetImg = document.querySelector(".parent .figImg");
+    // // const targetTxt = document.querySelector(".parent .figCap");
+
+    // targetImg.setAttribute("src", "https://images-ext-2.discordapp.net/external/Vu8h2Lh0rB9nLBIUb1vz34Jxs_QkIv_aXemdWtMHYYg/https/file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg?width=482&height=641");
+    // targetTxt.textContent = "유재석씨가 환하게 웃고있습니다.";
+  </script>
+</body>
+</html>
