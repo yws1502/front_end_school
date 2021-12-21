@@ -871,12 +871,301 @@ a = 3;
 b = ["Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"];
 console.log(solution(a, b));
 
-
-
 // 2. 19년도 
+// 링크 : https://tech.kakao.com/2018/09/21/kakao-blind-recruitment-for2019-round-1/
+// 1번 오픈채팅방 문제
+// 구조 분해 할당
+let test = [
+  "A 10 !",
+  "B 20 !",
+  "A 22 @",
+  "B 20 @",
+  "A 21 !@",
+];
+
+result = [];
+
+test.forEach((el) => {
+  const [one, two, three] = el.split(" ");
+  if (one === "A") {
+    if (two >= 20) {
+      result.push([two, three]);
+    }
+  }
+});
+
+console.log(result);
+
+// 본격 문제 풀기
+function solution(record) {
+  let result = [];
+  let answer = [];
+  let userInfo = {};
+
+  for (const el of record) {
+    const [state, id, nickName] = el.split(" ");
+    if (state === "Enter") {
+      userInfo[id] = nickName;
+      result.push([id, "님이 들어왔습니다."])
+    } else if (state === "Leave") {
+      result.push([id, "님이 나갔습니다."])
+    } else {
+      userInfo[id] = nickName;
+    }
+  }
+
+  for (const el of result) {
+    answer.push(userInfo[el[0]] + el[1])
+  }
+
+  return answer;
+}
+
+let record = [
+  "Enter uid1234 Muzi",
+  "Enter uid4567 Prodo",
+  "Leave uid1234",
+  "Enter uid1234 Prodo",
+  "Change uid4567 Ryan"
+]
+
+solution(record);
+
+//////////////////////////////////////
+// https://programmers.co.kr/learn/courses/30/lessons/42889?language=javascript
+
+// 2번 실패율
+// https://tech.kakao.com/2018/09/21/kakao-blind-recruitment-for2019-round-1/
+
+// 실패율 === 아직 클리어 못한 플레이어의 수 / 도달한 플레이어 수
+// 전체 스테이지의 개수 N
+// 스테이지의 번호가 담긴 배열 stages가 매개변수
+
+// 실패율이 높은 스테이지부터 내림차순으로 스테이지의 번호가 담겨있는 배열을 return 하도록 solution 함수
+// 만약 실패율이 같은 스테이지가 있다면 작은 번호의 스테이지가 먼저 오도록 하면 된다. (오름차순)
+
+// N    stages                      result
+// 5    [2, 1, 2, 6, 2, 4, 3, 3]    [3, 4, 2, 1, 5]
+// 4    [4, 4, 4, 4, 4]                [4, 1, 2, 3]
+
+// 스테이지에 도달한 사람의 수
+// 1stage === 1
+// 2stage === 3
+// 3stage === 2
+// 4stage === 1
+// 5stage === 0
+
+
+// 실패율
+// 1stage === 1/8
+// 2stage === 3/7 === 3/(8-1)
+// 3stage === 2/4 === 2/(7-3)
+// 4stage === 1/2 === 1/(4-2)
+// 5stage === 0/1 === 0/(2-1)
+
+
+// [2, 1, 2, 6, 2, 4, 3, 3].filter((user) => user === 3);
+// (2) [3, 3]
+
+// step 1
+function solution(스테이지수, stages) {
+  let 실패율 = [];
+  let 유저수 = stages.length;
+
+  for (let i = 1; i <= 스테이지수; i++) {
+      let 도달한사람수 = stages.filter((user) => user === i).length;
+      실패율.push(도달한사람수);
+  }
+  return 실패율;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+
+// step 2
+function solution(스테이지수, stages) {
+  let 실패율 = [];
+  let 유저수 = stages.length;
+
+  for (let i = 1; i <= 스테이지수; i++) {
+      let 도달한사람수 = stages.filter((user) => user === i).length;
+      let 확률 = 도달한사람수/유저수;
+      유저수 -= 도달한사람수;
+      실패율.push({stage : i, 확률 : 확률});
+  }
+  return 실패율;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// [
+//     {stage: 1, 확률: 0.125},
+//     {stage: 2, 확률: 0.42857142857142855},
+//     {stage: 3, 확률: 0.5},
+//     {stage: 4, 확률: 0.5},
+//     {stage: 5, 확률: 0}
+// ]
+
+// result
+// [3, 4, 2, 1, 5]
+
+
+
+// step 3
+function solution(스테이지수, stages) {
+  let 실패율 = [];
+  let 유저수 = stages.length;
+
+  for (let i = 1; i <= 스테이지수; i++) {
+      let 도달한사람수 = stages.filter((user) => user === i).length;
+      let 확률 = 도달한사람수/유저수;
+      유저수 -= 도달한사람수;
+      실패율.push({stage : i, 확률 : 확률});
+  }
+
+  // sort의 내림차순
+  // b - a
+  // sort의 오름차순
+  // a - b
+  실패율.sort((a, b) => {
+      if (a.확률 === b.확률){
+          return a.stage - b.stage;
+      } else {
+          return b.확률 - a.확률;
+      }
+  });
+
+  return 실패율.map(object => object.stage);
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// step 2
+function solution(stateCount, stages) {
+  let failRate = [];
+  let userCount = stages.length;
+
+  for (let i = 1; i <= stateCount; i++) {
+    let sucessCount = stages.filter((user) => user === i).length;
+    let percentage = sucessCount/userCount;
+    userCount -= sucessCount;
+    failRate.push({state: i, percentage: percentage});
+  }
+  return failRate;
+}
+
+solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+// step 3
+function solution(stateCount, stages) {
+  let failRate = [];
+  let userCount = stages.length;
+
+  for (let i = 1; i <= stateCount; i++) {
+    let sucessCount = stages.filter((user) => user === i).length;
+    let percentage = sucessCount/userCount;
+    userCount -= sucessCount;
+    failRate.push({state: i, percentage: percentage});
+  }
+
+  failRate.sort((a, b) => {
+    if (a.percentage === b.percentage) {
+      return a.state - b.state // 오름차순
+    } else {
+      return b.percentage - a.percentage // 내림차순
+    }
+  });
+  return failRate;
+}
+
+let array = solution(5, [2, 1, 2, 6, 2, 4, 3, 3]);
+
+console.log(array);
+[
+  {state: 3, percentage: 0.5},
+  {state: 4, percentage: 0.5},
+  {state: 2, percentage: 0.42857142857142855},
+  {state: 1, percentage: 0.125},
+  {state: 5, percentage: 0}
+]
+
+let answer = array.map((element) => element.state);
+
+// 위랑 아래랑 같이 동작
+
+function map(array) {
+  let 반환값 = [];
+  for (let element of array) {
+    // element ==> {state: N, percentage: M}
+    반환값.push(element.state);
+  }
+  return 반환값
+}
+
+let answer = map(array);
+
+
 // 3. 20년도
 
+// aabbaccc -> a, a, b, b, a, c, c, c -> 2a2ba3c
+// aabbaccc -> aa, bb, ac, cc -> aabbacc
+// aabbaccc -> aab, bac, cc -> aabbacc
+// aabbaccc -> aabb, accc -> aabbacc
+
+// "aabbaccc".match(/[a-z]{1}/g);
+// "aabbaccc".match(/[a-z]{2}/g);
+
+function solution(s) {
+  let answer = s.length;
+  let len = s.length;
+
+  if (len === 1) return 1;
+
+  for (let i = 1; i < (len/2)+1; i++) {
+    const re = new RegExp(`[a-x]{${i}}`, "g");
+    let sliceString = s.match(re);
+    
+    // let compressString = "2a3c4d"
+    let compressString = '';
+    let count = 1;
+    for (let j = 0; j < sliceString.length; j++) {
+      if (sliceString[j] === sliceString[j+1]) {
+        count += 1;
+      } else if (count === 1) {
+        compressString += sliceString[j];
+      } else if (count > 1) {
+        compressString += (count + sliceString[j]);
+        count = 1;
+      }
+    }
+    if (len % i !== 0) {
+      compressString += s.slice(-len % i)
+    }
+    answer = Math.min(answer, compressString.length);
+  }
+  return answer;
+}
+
+solution("aabbaccc");
+
+
+// 번외
+// 입력 예시 : aaabbcccccca
+// 출력 예시 : a3b2c6a1
+
+let s = "aaabbcccccca";
+let count = 1;
+let answer = "";
+
+for (let i = 0; i < s.length; i++) {
+  if (s[i] === s[i+1]) {
+    count += 1
+  } else if (count >= 1) {
+    answer += (count + s[i]);
+    count = 1;
+  }
+}
+
+console.log(answer);
 
 // 4. 21년도
-
-
