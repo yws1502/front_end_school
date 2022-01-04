@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>넌적스 테스트 3</title>
+</head>
+<body>
+    {# 주석, 조건문, 변수, 필터, 사전식정렬 #}
+    <h1>넌적스 문법 테스트</h1>
+    {#
+        Comparisons :
+        ==
+        ===
+        !=
+        !==
+        >
+        >=
+        <
+        <=
+
+        Logic : 
+        and
+        or
+        not
+    #}
+    {% for i in 예금 %}
+        {% if i.금액 <= 100 %}
+            <h2 style="color:red;">{{ i.은행명}}</h2>
+            <p>{{ i.계좌번호 }}</p>
+            <p>{{ i.금액 }}</p>
+        {% elif i.금액 <= 200 %}
+            <h2 style="color:blue;">{{ i.은행명}}</h2>
+            <p>{{ i.계좌번호 }}</p>
+            <p>{{ i.금액 }}</p>
+        {% else %}
+            <h2 style="color:green;">{{ i.은행명}}</h2>
+            <p>{{ i.계좌번호 }}</p>
+            <p>{{ i.금액 }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <p>--------------</p>
+    {% set x = 10 %}
+    {% set y = 20 %}
+    <p>{{ x + y }}</p>
+    <p>--------------</p>
+    
+    {#
+        Addition: +
+        Subtraction: -
+        Division: /
+        Division and integer truncation: //
+        Division remainder: %
+        Multiplication: *
+        Power: **
+    #}
+</body>
+</html>
